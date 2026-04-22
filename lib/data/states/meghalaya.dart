@@ -1,0 +1,53 @@
+import '../../models/place.dart';
+
+const List<Place> meghalayaPlaces = [
+  Place(
+    id: 'meghalaya_ml',
+    name: 'Meghalaya — Shillong & Cherrapunji',
+    nameHindi: 'मेघालय — शिलांग और चेरापूंजी',
+    state: 'Meghalaya',
+    shortDescription: 'Abode of Clouds — living root bridges, wettest place on Earth, waterfalls',
+    description: 'Meghalaya ("Abode of Clouds") is India\'s most magical state. Shillong, the "Scotland of the East", has cool weather, waterfalls, and vibrant music culture. Cherrapunji (Sohra) is the wettest place on Earth and home to the astonishing living root bridges — handwoven from aerial roots of rubber trees over centuries.',
+    category: PlaceCategory.hillStation,
+    bestSeasons: [Season.monsoon, Season.winter],
+    latitude: 25.5788, longitude: 91.8933,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Meghalaya_Living_Root_Bridge.jpg/1280px-Meghalaya_Living_Root_Bridge.jpg',
+    rating: 4.8, entryFee: 'Free', timings: 'Open all day',
+    isFeatured: true,
+    tags: ['Living Root Bridge', 'Waterfalls', 'Wettest Place', 'Tribal Culture', 'Caves'],
+    nearestCity: 'Shillong',
+    howToReach: 'Shillong Airport (30 km from Shillong). Guwahati (100 km) is the nearest major hub. Buses from Guwahati.',
+    attractions: [
+      Attraction(
+        name: 'Double Decker Living Root Bridge', nameHindi: 'डबल डेकर जीवित जड़ पुल',
+        description: 'A 200-year-old living bridge made from the aerial roots of a rubber tree in Nongriat village near Cherrapunji. The unique double-decker structure is 30 metres long and grows stronger with each passing year. A 3,500-step trek through monsoon forest.',
+        emoji: '🌿', type: 'Natural Wonder', entryFee: '₹50', timings: 'Open all day',
+        latitude: 25.2637, longitude: 91.6947,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Meghalaya_Living_Root_Bridge.jpg/1280px-Meghalaya_Living_Root_Bridge.jpg',
+        activities: ['Trekking', 'Photography', 'Village Visit', 'Nature Walk'],
+        famousFoods: ['Jadoh (rice & pork)', 'Tungrymbai', 'Pukhlein', 'Kwai (betel)'],
+        vehicleRentals: ['Taxi to Tyrna (trek start): ₹2000', 'Guide: ₹500'],
+      ),
+      Attraction(
+        name: 'Nohkalikai Falls', nameHindi: 'नोहकलिकाई जलप्रपात',
+        description: 'India\'s tallest plunge waterfall at 340m near Cherrapunji. Named after a tragic Khasi legend of Ka Likai. During monsoon the falls become an overwhelming torrent; the green pool at the base glows jade-coloured.',
+        emoji: '💦', type: 'Waterfall', entryFee: '₹20', timings: 'Open all day',
+        latitude: 25.2936, longitude: 91.6899,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Nohkalikai_Falls_Meghalaya.jpg/1280px-Nohkalikai_Falls_Meghalaya.jpg',
+        activities: ['Photography', 'Viewpoint Visit', 'Nature Walk'],
+        famousFoods: ['Local Tribal Thali', 'Dohneiong'],
+        vehicleRentals: ['Taxi from Shillong: ₹2500 full day', 'Bus: ₹100'],
+      ),
+      Attraction(
+        name: 'Dawki River (Umngot River)', nameHindi: 'दावकी नदी',
+        description: 'India\'s cleanest river — the crystal-clear Umngot River at Dawki appears so transparent that boats seem to float in mid-air. The annual Dawki Boat Race draws thousands. The river marks the India–Bangladesh border.',
+        emoji: '🚣', type: 'River', entryFee: 'Boating: ₹300', timings: 'Open all day',
+        latitude: 25.1929, longitude: 92.0258,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Dawki_River_Meghalaya.jpg/1280px-Dawki_River_Meghalaya.jpg',
+        activities: ['Boating', 'Photography', 'Swimming', 'Snorkelling'],
+        famousFoods: ['Fish Curry', 'Jadoh', 'Local Snacks'],
+        vehicleRentals: ['Taxi from Shillong: ₹2000', 'Rowboat: ₹300/hr'],
+      ),
+    ],
+  ),
+];

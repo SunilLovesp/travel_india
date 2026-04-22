@@ -1,0 +1,63 @@
+import '../../models/place.dart';
+
+const List<Place> madhyaPradeshPlaces = [
+  Place(
+    id: 'khajuraho_mp',
+    name: 'Khajuraho',
+    nameHindi: 'खजुराहो',
+    state: 'Madhya Pradesh',
+    shortDescription: 'UNESCO temples with erotic sculptures — 10th-century Chandela art',
+    description: 'Khajuraho\'s group of temples (950–1050 AD) are UNESCO World Heritage monuments built by the Chandela dynasty. Famous for their exquisite erotic sculptures, the temples are actually a 10% detail on a broader cosmic vision. The remaining 22 temples out of original 85 are masterpieces of Nagara architecture.',
+    category: PlaceCategory.temple,
+    bestSeasons: [Season.winter, Season.autumn],
+    latitude: 24.8318, longitude: 79.9199,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Khajuraho_-_Kandariya_Mahadeva_Temple.jpg/1280px-Khajuraho_-_Kandariya_Mahadeva_Temple.jpg',
+    rating: 4.7, entryFee: '₹40 (Indian), ₹600 (Foreign)', timings: '8:00 AM – 6:00 PM',
+    isFeatured: true,
+    tags: ['UNESCO', 'Temples', 'Chandela', 'Ancient Art', 'Heritage'],
+    nearestCity: 'Khajuraho',
+    howToReach: 'Khajuraho Airport (5 km). Trains from Delhi and Varanasi. Buses from Agra, Jhansi, Bhopal.',
+    attractions: [
+      Attraction(
+        name: 'Western Temple Group', nameHindi: 'पश्चिमी मंदिर समूह',
+        description: 'The main cluster of 6 temples including the spectacular Kandariya Mahadeva Temple (tallest at 30.5m). These Nagara-style temples have horizontal bands of exquisite sculpture covering every inch.',
+        emoji: '🛕', type: 'Temple Complex', entryFee: '₹40', timings: '8:00 AM – 6:00 PM',
+        latitude: 24.8318, longitude: 79.9199,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Khajuraho_-_Kandariya_Mahadeva_Temple.jpg/1280px-Khajuraho_-_Kandariya_Mahadeva_Temple.jpg',
+        activities: ['Heritage Tour', 'Photography', 'Evening Sound & Light Show', 'Architecture Study'],
+        famousFoods: ['Bhutte ka Kees', 'Dal Bafla', 'Mawa Bati'],
+        vehicleRentals: ['Cycle Rickshaw: ₹100–200', 'E-Rickshaw: ₹50–100', 'Taxi: ₹500–800/day'],
+      ),
+    ],
+  ),
+
+  Place(
+    id: 'bandhavgarh_mp',
+    name: 'Bandhavgarh National Park',
+    nameHindi: 'बांधवगढ़ राष्ट्रीय उद्यान',
+    state: 'Madhya Pradesh',
+    shortDescription: 'Highest tiger density in India — where spotting a tiger is almost guaranteed',
+    description: 'Bandhavgarh has the highest known density of Bengal tigers in the world. Set in the Vindhya Hills, the park has three safari zones: Tala, Magdhi, and Khitauli. The ancient Bandhavgarh Fort atop a cliff adds a historical dimension to the wildlife experience.',
+    category: PlaceCategory.wildlife,
+    bestSeasons: [Season.winter, Season.summer],
+    latitude: 23.7226, longitude: 81.0296,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Bengal_Tiger_Bandhavgarh.jpg/1280px-Bengal_Tiger_Bandhavgarh.jpg',
+    rating: 4.8, entryFee: '₹3000–4500/jeep (6 pax)', timings: 'Oct–Jun, Dawn & Dusk safaris',
+    isFeatured: false,
+    tags: ['Royal Bengal Tiger', 'Tiger Safari', 'Jungle', 'Wildlife', 'MP Tourism'],
+    nearestCity: 'Umaria',
+    howToReach: 'Jabalpur Airport (200 km). Umaria railway station (35 km). Package tours from Jabalpur.',
+    attractions: [
+      Attraction(
+        name: 'Tala Safari Zone', nameHindi: 'ताला सफारी ज़ोन',
+        description: 'Best zone for tiger sightings in Bandhavgarh. Morning safari (6–10 AM) through dense sal forest, meadows and streams. Tiger sighting probability is extremely high — often multiple tigers spotted per trip.',
+        emoji: '🐅', type: 'Safari', entryFee: '₹4500/jeep', timings: 'Oct–Jun: 6–10 AM, 2:30–6 PM',
+        latitude: 23.7226, longitude: 81.0296,
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Bengal_Tiger_Bandhavgarh.jpg/1280px-Bengal_Tiger_Bandhavgarh.jpg',
+        activities: ['Jeep Safari', 'Tiger Spotting', 'Leopard & Gaur Watching', 'Photography'],
+        famousFoods: ['Dal Bafla', 'Bhutte ka Kees', 'Poha', 'Chai'],
+        vehicleRentals: ['Jeep (mandatory): ₹4000–4500', 'Guide (mandatory): ₹500'],
+      ),
+    ],
+  ),
+];
