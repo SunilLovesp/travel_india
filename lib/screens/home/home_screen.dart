@@ -55,15 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
     final featured = provider.featuredPlaces;
     final seasonal = provider.currentSeasonPlaces;
     final currentSeason = SeasonExtension.currentSeason();
-    final trending = allPlaces
-        .where((p) => p.rating >= 4.4)
-        .toList()
+    final trending = allPlaces.where((p) => p.rating >= 4.4).toList()
       ..sort((a, b) => b.rating.compareTo(a.rating));
     final featuredActivities =
         allActivities.where((a) => a.isFeatured).toList();
-    final travChoice = allPlaces
-        .where((p) => p.rating >= 4.5)
-        .toList();
+    final travChoice = allPlaces.where((p) => p.rating >= 4.5).toList();
 
     return Scaffold(
       body: CustomScrollView(
@@ -184,16 +180,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 220,
                     child: PageView.builder(
                       controller: _pageController,
-                      onPageChanged: (i) =>
-                          setState(() => _currentPage = i),
+                      onPageChanged: (i) => setState(() => _currentPage = i),
                       itemCount: featured.length,
                       itemBuilder: (_, i) {
                         final p = featured[i];
                         return GestureDetector(
                           onTap: () => _openDetail(p),
                           child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Stack(
@@ -248,8 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                         Row(children: [
                                           const Icon(Icons.location_on,
-                                              color: Colors.white70,
-                                              size: 14),
+                                              color: Colors.white70, size: 14),
                                           const SizedBox(width: 2),
                                           Text(p.state,
                                               style: GoogleFonts.poppins(
@@ -311,7 +304,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.poppins(
                                 fontSize: 16, fontWeight: FontWeight.w700)),
                         TextButton(
-                          onPressed: () => Navigator.push(context,
+                          onPressed: () => Navigator.push(
+                              context,
                               MaterialPageRoute(
                                   builder: (_) => const ExploreScreen())),
                           child: Text('See all',
@@ -326,8 +320,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 240,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       itemCount: trending.take(8).length,
                       itemBuilder: (_, i) {
                         final p = trending[i];
@@ -343,7 +336,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ],
-
                 // ── Season Banner ─────────────────────────────────────────────
                 const SizedBox(height: 20),
                 Padding(
@@ -360,8 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     count: travChoice.length,
                     onTap: () => Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (_) => const ExploreScreen()),
+                      MaterialPageRoute(builder: (_) => const ExploreScreen()),
                     ),
                   ),
                 ),
@@ -376,13 +367,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Text('Things To Do',
                             style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700)),
+                                fontSize: 16, fontWeight: FontWeight.w700)),
                         TextButton(
-                          onPressed: () => Navigator.push(context,
+                          onPressed: () => Navigator.push(
+                              context,
                               MaterialPageRoute(
-                                  builder: (_) =>
-                                      const ActivitiesScreen())),
+                                  builder: (_) => const ActivitiesScreen())),
                           child: Text('See all',
                               style: GoogleFonts.poppins(
                                   color: AppColors.primary, fontSize: 13)),
@@ -395,8 +385,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 200,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       itemCount: featuredActivities.length,
                       itemBuilder: (_, i) {
                         final a = featuredActivities[i];
@@ -405,8 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) =>
-                                  ActivityDetailScreen(activity: a),
+                              builder: (_) => ActivityDetailScreen(activity: a),
                             ),
                           ),
                         );
@@ -428,15 +416,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 100,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     children: PlaceCategory.values.map((cat) {
                       return GestureDetector(
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) =>
-                                CategoryPlacesScreen(category: cat),
+                            builder: (_) => CategoryPlacesScreen(category: cat),
                           ),
                         ),
                         child: Container(
@@ -448,18 +434,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 60,
                                 height: 60,
                                 decoration: BoxDecoration(
-                                  color: categoryColor(cat)
-                                      .withOpacity(0.15),
-                                  borderRadius:
-                                      BorderRadius.circular(16),
+                                  color: categoryColor(cat).withOpacity(0.15),
+                                  borderRadius: BorderRadius.circular(16),
                                   border: Border.all(
-                                      color: categoryColor(cat)
-                                          .withOpacity(0.3)),
+                                      color:
+                                          categoryColor(cat).withOpacity(0.3)),
                                 ),
                                 child: Center(
                                   child: Text(cat.emoji,
-                                      style: const TextStyle(
-                                          fontSize: 28)),
+                                      style: const TextStyle(fontSize: 28)),
                                 ),
                               ),
                               const SizedBox(height: 6),
@@ -508,12 +491,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 110,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     children: _stateInfoList.map((s) {
-                      final count = allPlaces
-                          .where((p) => p.state == s.name)
-                          .length;
+                      final count =
+                          allPlaces.where((p) => p.state == s.name).length;
                       return GestureDetector(
                         onTap: () => Navigator.push(
                           context,
@@ -548,14 +529,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 child: Center(
                                   child: Text(s.emoji,
-                                      style: const TextStyle(
-                                          fontSize: 22)),
+                                      style: const TextStyle(fontSize: 22)),
                                 ),
                               ),
                               const SizedBox(height: 6),
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 6),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 6),
                                 child: Text(
                                   s.name.split(' ').take(2).join('\n'),
                                   textAlign: TextAlign.center,
@@ -596,8 +576,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) =>
-                                    const RestaurantsScreen()),
+                                builder: (_) => const RestaurantsScreen()),
                           ),
                         ),
                       ),
@@ -647,15 +626,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 210,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16),
-                    itemCount: allRestaurants
-                        .where((r) => r.isFeatured)
-                        .length,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: allRestaurants.where((r) => r.isFeatured).length,
                     itemBuilder: (_, i) {
-                      final featuredR = allRestaurants
-                          .where((r) => r.isFeatured)
-                          .toList();
+                      final featuredR =
+                          allRestaurants.where((r) => r.isFeatured).toList();
                       final r = featuredR[i];
                       return _RestaurantCard(
                         restaurant: r,
@@ -699,10 +674,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 230,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16),
-                    itemCount:
-                        allHotels.where((h) => h.isFeatured).length,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: allHotels.where((h) => h.isFeatured).length,
                     itemBuilder: (_, i) {
                       final featuredH =
                           allHotels.where((h) => h.isFeatured).toList();
@@ -746,8 +719,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 240,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     itemCount: seasonal.length,
                     itemBuilder: (_, i) {
                       final p = seasonal[i];
@@ -755,8 +727,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 180,
                         child: Padding(
                           padding: const EdgeInsets.only(right: 12),
-                          child: PlaceCard(
-                              place: p, onTap: () => _openDetail(p)),
+                          child:
+                              PlaceCard(place: p, onTap: () => _openDetail(p)),
                         ),
                       );
                     },
@@ -825,8 +797,7 @@ class _TravellersChoiceBanner extends StatelessWidget {
   final int count;
   final VoidCallback onTap;
 
-  const _TravellersChoiceBanner(
-      {required this.count, required this.onTap});
+  const _TravellersChoiceBanner({required this.count, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -877,8 +848,7 @@ class _TravellersChoiceBanner extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 12, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(10),
@@ -953,8 +923,8 @@ class _ActivityCard extends StatelessWidget {
                   top: 7,
                   right: 7,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 6, vertical: 3),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                     decoration: BoxDecoration(
                       color: AppColors.primary,
                       borderRadius: BorderRadius.circular(6),
@@ -1057,14 +1027,13 @@ class _SeasonBanner extends StatelessWidget {
                 ),
                 Text(
                   '${season.displayNameHindi} • ${season.months}',
-                  style: GoogleFonts.poppins(
-                      color: Colors.white70, fontSize: 12),
+                  style:
+                      GoogleFonts.poppins(color: Colors.white70, fontSize: 12),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   '$count places perfect right now',
-                  style: GoogleFonts.poppins(
-                      color: Colors.white, fontSize: 12),
+                  style: GoogleFonts.poppins(color: Colors.white, fontSize: 12),
                 ),
               ],
             ),
@@ -1074,8 +1043,7 @@ class _SeasonBanner extends StatelessWidget {
               color: Colors.white.withOpacity(0.2),
               borderRadius: BorderRadius.circular(10),
             ),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             child: Text('Explore',
                 style: GoogleFonts.poppins(
                     color: Colors.white,
@@ -1109,8 +1077,7 @@ class _QuickLinkCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(16),
@@ -1210,8 +1177,8 @@ class _RestaurantCard extends StatelessWidget {
                   top: 7,
                   right: 7,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 6, vertical: 3),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                     decoration: BoxDecoration(
                       color: AppColors.primary,
                       borderRadius: BorderRadius.circular(6),
@@ -1323,16 +1290,14 @@ class _HotelCard extends StatelessWidget {
                     height: 120,
                     color: AppColors.navy.withOpacity(0.1),
                     child: const Center(
-                      child: Icon(Icons.hotel,
-                          color: AppColors.navy, size: 32),
+                      child: Icon(Icons.hotel, color: AppColors.navy, size: 32),
                     ),
                   ),
                   errorWidget: (_, __, ___) => Container(
                     height: 120,
                     color: AppColors.navy.withOpacity(0.1),
                     child: const Center(
-                      child: Icon(Icons.hotel,
-                          color: AppColors.navy, size: 32),
+                      child: Icon(Icons.hotel, color: AppColors.navy, size: 32),
                     ),
                   ),
                 ),
@@ -1340,8 +1305,8 @@ class _HotelCard extends StatelessWidget {
                   top: 7,
                   left: 7,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 6, vertical: 3),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                     decoration: BoxDecoration(
                       color: AppColors.navy.withOpacity(0.85),
                       borderRadius: BorderRadius.circular(6),
@@ -1357,8 +1322,8 @@ class _HotelCard extends StatelessWidget {
                   top: 7,
                   right: 7,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 6, vertical: 3),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                     decoration: BoxDecoration(
                       color: AppColors.primary,
                       borderRadius: BorderRadius.circular(6),
@@ -1413,8 +1378,7 @@ class _HotelCard extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.poppins(
-                                fontSize: 10,
-                                color: AppColors.textHint)),
+                                fontSize: 10, color: AppColors.textHint)),
                       ),
                       Text(h.pricePerNight,
                           style: GoogleFonts.poppins(
@@ -1442,27 +1406,27 @@ class _StateInfo {
 }
 
 const List<_StateInfo> _stateInfoList = [
-  _StateInfo('Himachal Pradesh',          '🏔️', Color(0xFF1565C0)),
-  _StateInfo('Jammu & Kashmir',           '❄️', Color(0xFF4527A0)),
-  _StateInfo('Ladakh',                    '🏜️', Color(0xFF6D4C41)),
-  _StateInfo('Uttarakhand',               '🕉️', Color(0xFF2E7D32)),
-  _StateInfo('Rajasthan',                 '🏯', Color(0xFFE65100)),
-  _StateInfo('Punjab',                    '🌾', Color(0xFFF57F17)),
-  _StateInfo('Delhi',                     '🇮🇳', Color(0xFFB71C1C)),
-  _StateInfo('Uttar Pradesh',             '🕌', Color(0xFF6A1B9A)),
-  _StateInfo('Goa',                       '🏖️', Color(0xFF00838F)),
-  _StateInfo('Maharashtra',               '🏙️', Color(0xFFBF360C)),
-  _StateInfo('Gujarat',                   '🦁', Color(0xFFEF6C00)),
-  _StateInfo('Karnataka',                 '🏛️', Color(0xFFAD1457)),
-  _StateInfo('Kerala',                    '🌴', Color(0xFF00695C)),
-  _StateInfo('Tamil Nadu',                '🛕', Color(0xFF880E4F)),
+  _StateInfo('Himachal Pradesh', '🏔️', Color(0xFF1565C0)),
+  _StateInfo('Jammu & Kashmir', '❄️', Color(0xFF4527A0)),
+  _StateInfo('Ladakh', '🏜️', Color(0xFF6D4C41)),
+  _StateInfo('Uttarakhand', '🕉️', Color(0xFF2E7D32)),
+  _StateInfo('Rajasthan', '🏯', Color(0xFFE65100)),
+  _StateInfo('Punjab', '🌾', Color(0xFFF57F17)),
+  _StateInfo('Delhi', '🇮🇳', Color(0xFFB71C1C)),
+  _StateInfo('Uttar Pradesh', '🕌', Color(0xFF6A1B9A)),
+  _StateInfo('Goa', '🏖️', Color(0xFF00838F)),
+  _StateInfo('Maharashtra', '🏙️', Color(0xFFBF360C)),
+  _StateInfo('Gujarat', '🦁', Color(0xFFEF6C00)),
+  _StateInfo('Karnataka', '🏛️', Color(0xFFAD1457)),
+  _StateInfo('Kerala', '🌴', Color(0xFF00695C)),
+  _StateInfo('Tamil Nadu', '🛕', Color(0xFF880E4F)),
   _StateInfo('Andaman & Nicobar Islands', '🐠', Color(0xFF00796B)),
-  _StateInfo('West Bengal',               '🐅', Color(0xFF1B5E20)),
-  _StateInfo('Odisha',                    '☀️', Color(0xFFE65100)),
-  _StateInfo('Madhya Pradesh',            '🐆', Color(0xFF4A148C)),
-  _StateInfo('Telangana',                 '🕌', Color(0xFF006064)),
-  _StateInfo('Bihar',                     '🌳', Color(0xFF33691E)),
-  _StateInfo('Assam',                     '🦏', Color(0xFF1A237E)),
-  _StateInfo('Meghalaya',                 '💦', Color(0xFF006064)),
-  _StateInfo('Sikkim',                    '🏔️', Color(0xFF4527A0)),
+  _StateInfo('West Bengal', '🐅', Color(0xFF1B5E20)),
+  _StateInfo('Odisha', '☀️', Color(0xFFE65100)),
+  _StateInfo('Madhya Pradesh', '🐆', Color(0xFF4A148C)),
+  _StateInfo('Telangana', '🕌', Color(0xFF006064)),
+  _StateInfo('Bihar', '🌳', Color(0xFF33691E)),
+  _StateInfo('Assam', '🦏', Color(0xFF1A237E)),
+  _StateInfo('Meghalaya', '💦', Color(0xFF006064)),
+  _StateInfo('Sikkim', '🏔️', Color(0xFF4527A0)),
 ];
